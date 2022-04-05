@@ -30,4 +30,11 @@ jobs:
     - name: Lint with flake8
       run: |
         pipenv run flake8 .
-        pipenv run pytest
+    - name: Test with pytest
+      run: |
+          pipenv run pytest --cov=pypro
+    - name: Relatorio Coverage
+      env:
+        CODECOV_TOKEN: 'cedd208c-976c-4cc2-bbd6-2c7c4c704243'
+      run: |
+        pipenv run codecov
